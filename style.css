@@ -1,3 +1,4 @@
+/*----- Font Family -----*/
 @font-face{
     font-family:'Proxima Nova'; 
     src:url(./fonts/Proxima-Nova-Regular.otf);
@@ -19,7 +20,7 @@
     font-weight:bold;
 }
 
-
+/*----- Reset CSS -----*/
 *{
     margin:0;
     padding:0;
@@ -40,28 +41,36 @@ ul{
 img{
     max-width: 100%; 
 }
+.clearfix::after {
+    content:"";
+    clear:both;
+    display:block;
+}
+
+/*----- Container -----*/
 .container{
     margin:0 auto;
     max-width: 1140px;
     width: 100%;
     padding:0 20px;    
 }
+
+/*----- Header Section-----*/
 .header{       
     position: absolute;
     width: 100%;
     padding-top:30px;
     z-index: 1;
 }
+.header_logo, .header_list li{
+    display:inline-block;
+}
 .header_logo{
     line-height: 0;
-}
-.header_logo, .header_list li{
-    float:left;
 }
 .header_nav{
     float:right;
 }
-
 .header_list li ~ li{
     margin-left:20px;
 }
@@ -88,22 +97,20 @@ img{
     box-shadow: 0 0 4px 2px #3dbdb6;
     border-bottom:0;
 }
-.hero{
-   /* height: 100vh;*/
-   height:720px;
+
+/*----- Hero Section -----*/
+.hero{ 
+   height:100vh;
 }
-.hero_bg{  
-    background: #3e3e58;
-    /*position: relative;
-    height: 85vh;*/
-    height:620px;
-}
-.hero_content{
+.hero_bg{   
+    background: #3e3e58 url('./images/illustration.png') no-repeat bottom right;
+    height:100vh;
+    width:100%; 
+} 
+.hero_content{ 
     position: absolute;
-}   
-.hero_content{
-    top:30%;    
-    max-width:440px;
+    top:30%;
+    max-width:440px;  
     width: 100%;
 }
 .hero_content h1{
@@ -112,28 +119,18 @@ img{
     line-height: 1;
     font-weight: normal;
     margin-bottom:50px;
-}
-
-.hero_image{ 
-    background: url('./images/illustration.png') no-repeat 100% 95%;
-    height:712px;
-    width:100%; 
-}
-/*
-.hero_image{
+}  
+.hero_logos{   
     position:absolute;
-    bottom:-14%;
-    right:0;
-}*/
-.hero_logos{
-   /* position:absolute;
-    /*height: 15vh;    
-    height:100px;*/
+    bottom:-2%;
     padding:30px 0px;
     width:100%;
     background-color:#f9fafa;
     text-align:center;
     border: 1px solid #eeeeee;
+}
+.hero_logos_ul li{
+    display: inline-block;
 }
 .hero_logos img{
     margin-left:60px;
@@ -474,11 +471,7 @@ label, .submit{
 .footer_float{
     float:left;
 }
-.clearfix::after {
-    content:"";
-    clear:both;
-    display:block;
-}
+
 
 /*Responsiveness*/ 
 @media (max-width:992px){
@@ -535,7 +528,6 @@ label, .submit{
         text-align: center;
         margin: 20px 0px;
     }
-
 }
 @media (max-width:768px){
     .hero h1{
@@ -545,7 +537,13 @@ label, .submit{
         display: inline-block;
     } 
     .hero_logos img{
-        margin:20px 20px;
+        margin:20px 0px;
+    }
+    .hero_logos{
+        position: relative;        
+    } 
+    .hero_logos_ul li{
+        display: list-item;
     }
     .text-field, .submit{
         max-width:calc(100% - 40px);
@@ -567,25 +565,19 @@ label, .submit{
     }
     .header{
         padding-top:14px;
-    }
-    .header_logo, .header_list li{
-        float:none; 
-    }
+    } 
     .header_list li a.active, .header_list li a, .header_list li a:hover{
         padding:0;
         margin:0;
         border:0;
     } 
     .header_list li ~ li{        
-        margin-left:0px;
+        margin-left:10px;
     }
     .header_list li a.sign-up, .header_list li a.sign-up:hover{
         padding:6px 10px;
         border:1px solid #979797; 
-    }
-    .header_list li{        
-        margin-bottom: 14px;
-    }
+    } 
     .customer_support h2{
         font-size:24px;
     }
@@ -611,9 +603,17 @@ label, .submit{
     .footer .icon_ul{
         width:100%;
     }
-
 }
 @media (max-width:576px){
+    .header_list li{
+        display: list-item;
+    }
+    .header_list li{        
+        margin-bottom: 14px;
+    }
+    .header_list li ~ li{        
+        margin-left:0px;
+    }
     .hero_content{
         top:40%;
         max-width:280px;
@@ -634,5 +634,4 @@ label, .submit{
     .wrapup_2 li{
         font-size:16px;
     }    
-
 }
