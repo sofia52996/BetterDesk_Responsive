@@ -542,8 +542,8 @@ label, .submit{
     .hero_logos{
         position: relative;        
     } 
-    .hero_logos_ul li{
-        display: list-item;
+    .hero_logos_ul li{ 
+        width:100%;
     }
     .text-field, .submit{
         max-width:calc(100% - 40px);
